@@ -1,8 +1,10 @@
-# React + Vite
+# Iris Perry INF655 Assignment 1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my repository for my submission for Assignment 1 for INF 655 - Front End Web Devlopment 2.
 
-Currently, two official plugins are available:
+It is a React app with the following components:
+- Functional component that displays a greeting and the current date.
+- Class component that displays a user's name and profession using state. It also displays a lucky number for the user.
+- Another functional component that contains an array of tasks and a function to choose a random task from the array and displays it.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Each one of these components is imported into the App.js file.
