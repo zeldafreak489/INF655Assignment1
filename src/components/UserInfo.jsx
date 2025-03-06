@@ -15,6 +15,7 @@ export default class UserInfo extends Component {
                 <h2>Name: {this.state.name}</h2>
                 <h3>Profession: {this.state.profession}</h3>
                 <p>Your lucky number is {Math.floor(Math.random() * 100)}</p>
+                <button onClick={this.props.handleClick}>Show Alert</button>
             </div>
         );
     }

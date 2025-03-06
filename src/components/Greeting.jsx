@@ -1,9 +1,9 @@
 import React from "react";
 
-function Greeting() {
+function Greeting(props) {
     return (
         <div>
-            <h1>Hello, Welcome to React!</h1>
+            <h1>Hello, {props.username}!</h1>
             <p style={{ color: "red", fontSize: "20px"}}>Today is {new Date().toDateString()}.</p>
         </div>
     );
