@@ -6,6 +6,7 @@ import TaskComponent from './components/TaskComponent.jsx'
 import Greeting from './components/Greeting.jsx'
 import UserInfo from './components/UserInfo.jsx'
 import Counter from './components/Counter.jsx'
+import OldTaskForm from './components/OldTaskForm.jsx'
 import TaskForm from './components/TaskForm.jsx'
 
 function App() {
@@ -26,18 +27,16 @@ function App() {
   return ( 
     <div className="App">
       <Greeting username="Alice"/>
-      <Greeting username="Bob"/>
       <UserInfo handleClick={handleAlert}/>
-      <TaskComponent />
+      <TaskComponent/>
       <Counter />
 
-      <ul>
+      {/* <ul>
         {tasks.map(task => (
           <li key={task.id}>{task.task}</li>
         ))}
-      </ul>
+      </ul> */}
 
-      <TaskForm />
 
     </div>
   )
