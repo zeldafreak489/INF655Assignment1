@@ -8,7 +8,7 @@ function Greeting(props) {
     };
 
     return (
-        <div>
+        <div className="section">
             <h1>{greeting}, {props.username}!</h1>
             <p style={{ color: "red", fontSize: "20px"}}>Today is {new Date().toDateString()}.</p>
             <button onClick={changeGreeting}>Change Greeting</button>

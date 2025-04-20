@@ -1,45 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import TaskComponent from './components/TaskComponent.jsx'
-import Greeting from './components/Greeting.jsx'
-import UserInfo from './components/UserInfo.jsx'
-import Counter from './components/Counter.jsx'
-import OldTaskForm from './components/OldTaskForm.jsx'
-import TaskForm from './components/TaskForm.jsx'
+import './App.css';
+import React from "react";
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import Header from "./pages/Header";
+import Footer from "./pages/Footer";
+import NotFound from "./pages/NotFound";
+import SignIn from "./pages/SignIn";
+import Register from './pages/Register';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthContextProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import ProfilePage from './pages/ProfilePage';
 
-function App() {
-  // Array of tasks
-  const tasks = [
-    { id: 1, task: "Wash the dishes" }, 
-    { id: 2, task: "Fold the laundry" },
-    { id: 3, task: "Take out the trash" },
-    { id: 4, task: "Cook dinner" },
-    { id: 5, task: "Clean the kitchen" },
-  ];
-
-  // handleAlert function
+export default function App() {
+    // handleAlert function
   const handleAlert = () => {
     alert("Button clicked!");
   };
 
   return ( 
     <div className="App">
-      <Greeting username="Alice"/>
-      <UserInfo handleClick={handleAlert}/>
-      <TaskComponent/>
-      <Counter />
-
-      {/* <ul>
-        {tasks.map(task => (
-          <li key={task.id}>{task.task}</li>
-        ))}
-      </ul> */}
-
-
+      <BrowserRouter>
+      <AuthContextProvider>
+        <Header />
+            <Routes>
+              <Route path="/" element={<SignIn />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/signin" element={<SignIn />} />
+              <Route path="/register" element={<Register />} />
+              <Route 
+                path="/tasks"
+                element={
+                  <ProtectedRoute>
+                    <HomePage />
+                  </ProtectedRoute>
+                }
+                />
+                <Route 
+                  path="/about"
+                  element={
+                    <ProtectedRoute>
+                      <AboutPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route 
+                  path="/profile"
+                  element={
+                    <ProtectedRoute>
+                      <ProfilePage />
+                    </ProtectedRoute>
+                  }
+                />
+            </Routes>
+          
+        <Footer />
+        </AuthContextProvider>
+      </BrowserRouter>
     </div>
   )
 }
-
-export default App;
